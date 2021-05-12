@@ -6,8 +6,8 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "purchase")
+public class Purchase {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -17,7 +17,16 @@ public class User {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "code")
+    private Long code;
+
+    @Column(name = "person")
+    private Long person;
+
+    @Column(name = "time")
+    private String time;
+
+    @Column(name = "quantity")
+    private Integer quantity;
 
 }

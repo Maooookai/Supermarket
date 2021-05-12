@@ -6,8 +6,8 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "supplier")
+public class Supplier {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -16,8 +16,5 @@ public class User {
 
     @Column(name = "name")
     private String name;
-
-    @Column(name = "password")
-    private String password;
 
 }
