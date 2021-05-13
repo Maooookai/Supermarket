@@ -11,7 +11,7 @@
  Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 12/05/2021 21:25:43
+ Date: 13/05/2021 21:15:48
 */
 
 SET NAMES utf8mb4;
@@ -51,7 +51,7 @@ DROP TABLE IF EXISTS `customer_return`;
 CREATE TABLE `customer_return` (
   `name` varchar(255) DEFAULT NULL,
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `code` varchar(255) DEFAULT NULL,
+  `code` bigint DEFAULT NULL,
   `purchase_time` datetime DEFAULT NULL,
   `return_time` datetime DEFAULT NULL,
   `quantity` int DEFAULT NULL,
