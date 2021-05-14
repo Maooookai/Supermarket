@@ -29,4 +29,7 @@ public class Purchase {
     @Column(name = "quantity")
     private Integer quantity;
 
+    @Column(name = "price")
+    private Float price;
+
 }
