@@ -7,7 +7,7 @@
  *
  *      https://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed cn.mirage.supermarket.to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -23,26 +23,26 @@ public class MavenWrapperDownloader {
 
     private static final String WRAPPER_VERSION = "0.5.6";
     /**
-     * Default URL to download the maven-wrapper.jar from, if no 'downloadUrl' is provided.
+     * Default URL cn.mirage.supermarket.to download the maven-wrapper.jar from, if no 'downloadUrl' is provided.
      */
     private static final String DEFAULT_DOWNLOAD_URL = "https://repo.maven.apache.org/maven2/io/takari/maven-wrapper/"
             + WRAPPER_VERSION + "/maven-wrapper-" + WRAPPER_VERSION + ".jar";
 
     /**
-     * Path to the maven-wrapper.properties file, which might contain a downloadUrl property to
+     * Path cn.mirage.supermarket.to the maven-wrapper.properties file, which might contain a downloadUrl property cn.mirage.supermarket.to
      * use instead of the default one.
      */
     private static final String MAVEN_WRAPPER_PROPERTIES_PATH =
             ".mvn/wrapper/maven-wrapper.properties";
 
     /**
-     * Path where the maven-wrapper.jar will be saved to.
+     * Path where the maven-wrapper.jar will be saved cn.mirage.supermarket.to.
      */
     private static final String MAVEN_WRAPPER_JAR_PATH =
             ".mvn/wrapper/maven-wrapper.jar";
 
     /**
-     * Name of the property which should be used to override the default download url for the wrapper.
+     * Name of the property which should be used cn.mirage.supermarket.to override the default download url for the wrapper.
      */
     private static final String PROPERTY_NAME_WRAPPER_URL = "wrapperUrl";
 
@@ -83,7 +83,7 @@ public class MavenWrapperDownloader {
                         "- ERROR creating output directory '" + outputFile.getParentFile().getAbsolutePath() + "'");
             }
         }
-        System.out.println("- Downloading to: " + outputFile.getAbsolutePath());
+        System.out.println("- Downloading cn.mirage.supermarket.to: " + outputFile.getAbsolutePath());
         try {
             downloadFileFromURL(url, outputFile);
             System.out.println("Done");
