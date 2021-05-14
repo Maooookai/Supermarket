@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>人事管理</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/home">小型超市管理系统</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav navbar-default">
+                <li><a href="/purchase">进货管理</a></li>
+                <li><a href="/sales">销售管理</a></li>
+                <li><a href="/stock">库存管理</a></li>
+                <li><a href="/hr">人事管理</a></li>
+                <li><a href="/money">财务</a></li>
+                <li><a href="/access">辅助功能</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        欢迎您，<span th:text="${session.userinfo.name}">请登录</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/profile">个人资料</a></li>
+                        <li><a href="/password">修改密码</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/exit">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="jumbotron">
+        <h2>人事管理</h2>
+        <a class="btn btn-default" href="/allStaff" role="button">所有职工</a>&nbsp;&nbsp;&nbsp;
+        <a class="btn btn-default active" href="/addStaff" role="button">增加职工</a>&nbsp;&nbsp;&nbsp;
+        <a class="btn btn-default" href="/allSupplier" role="button">所有供货商</a>&nbsp;&nbsp;&nbsp;
+        <a class="btn btn-default" href="/addSupplier" role="button">增加供货商</a>&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-danger" onclick="history.go(-1)">返回</button>
+        <h3>员工编辑</h3>
+        <form class="bs-example bs-example-form" method="post" th:action="@{/addStaff}">
+            <div class="input-group col-md-offset-0">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                <!--suppress HtmlFormInputWithoutLabel -->
+                <input class="form-control" placeholder="姓名" style="width: 280px" th:name="name" th:type="text">
+            </div>
+            <br>
+            <div class="input-group col-md-offset-0">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
+                <!--suppress HtmlFormInputWithoutLabel -->
+                <input class="form-control" placeholder="电话" style="width: 280px" th:name="phone" th:type="text">
+            </div>
+            <br>
+            <div class="input-group col-md-offset-0">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-bookmark"></span></span>
+                <!--suppress HtmlFormInputWithoutLabel -->
+                <input class="form-control" placeholder="年龄" style="width: 280px" th:name="age" th:type="text">
+            </div>
+            <br>
+            <div class="input-group col-md-offset-0">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                <!--suppress HtmlFormInputWithoutLabel -->
+                <input class="form-control" placeholder="工资" style="width: 280px" th:name="salary" th:type="text">
+            </div>
+            <br>
+            <span style="font-weight: bold">性别：</span>
+            <input id="男" th:name="gender" type="radio" value="男"/><label for="男">&nbsp;男&nbsp;</label>
+            <input id="女" th:name="gender" type="radio" value="女"/><label for="女">&nbsp;女</label>
+
+            <br>
+            <br>
+            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;添加
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-default" type="reset"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp;重置
+            </button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -2,7 +2,7 @@ package cn.mirage.supermarket.service.Impl;
 
 import cn.mirage.supermarket.repository.AnnouncementRepository;
 import cn.mirage.supermarket.service.AnnouncementService;
-import cn.mirage.supermarket.to.*;
+import cn.mirage.supermarket.to.AnnouncementVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ public class AnnouncementServiceImpl implements AnnouncementService {
     AnnouncementRepository announcementRepository;
 
     @Autowired
-    public AnnouncementServiceImpl(AnnouncementRepository announcementRepository){
+    public AnnouncementServiceImpl(AnnouncementRepository announcementRepository) {
         this.announcementRepository = announcementRepository;
     }
 

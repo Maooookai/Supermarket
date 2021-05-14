@@ -15,40 +15,40 @@ public class SalesController {
     SalesService salesService;
 
     @Autowired
-    public SalesController(SalesService salesService){
+    public SalesController(SalesService salesService) {
         this.salesService = salesService;
     }
 
     @RequestMapping(value = "sales")
-    public ModelAndView sales(ModelAndView modelAndView){
+    public ModelAndView sales(ModelAndView modelAndView) {
         modelAndView.setViewName("sales");
         return modelAndView;
     }
 
     @RequestMapping(value = "customerReturn")
-    public ModelAndView customerReturn(ModelAndView modelAndView){
+    public ModelAndView customerReturn(ModelAndView modelAndView) {
         modelAndView.setViewName("customerReturn");
         return modelAndView;
     }
 
-    @RequestMapping(value = "customerReturn",method = RequestMethod.POST)
-    public ModelAndView customerReturn(ModelAndView modelAndView, ReturnDTO dto){
+    @RequestMapping(value = "customerReturn", method = RequestMethod.POST)
+    public ModelAndView customerReturn(ModelAndView modelAndView, ReturnDTO dto) {
         salesService.customerReturn(dto);
-        modelAndView.addObject("returnResult","退货成功");
+        modelAndView.addObject("returnResult", "退货成功");
         modelAndView.setViewName("customerReturn");
         return modelAndView;
     }
 
     @RequestMapping(value = "sell")
-    public ModelAndView sell(ModelAndView modelAndView){
+    public ModelAndView sell(ModelAndView modelAndView) {
         modelAndView.setViewName("sell");
         return modelAndView;
     }
 
-    @RequestMapping(value = "sell",method = RequestMethod.POST)
-    public ModelAndView customerReturn(ModelAndView modelAndView, SellDTO dto){
+    @RequestMapping(value = "sell", method = RequestMethod.POST)
+    public ModelAndView customerReturn(ModelAndView modelAndView, SellDTO dto) {
         salesService.sell(dto);
-        modelAndView.addObject("sellResult","售出成功");
+        modelAndView.addObject("sellResult", "售出成功");
         modelAndView.setViewName("sell");
         return modelAndView;
     }

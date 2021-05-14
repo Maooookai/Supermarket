@@ -9,48 +9,46 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
-
 @RestController
 public class PurchaseController {
 
     PurchaseService purchaseService;
 
     @Autowired
-    public PurchaseController(PurchaseService purchaseService){
+    public PurchaseController(PurchaseService purchaseService) {
         this.purchaseService = purchaseService;
     }
 
     @RequestMapping(value = "purchase")
-    public ModelAndView purchase(ModelAndView modelAndView){
+    public ModelAndView purchase(ModelAndView modelAndView) {
         modelAndView.setViewName("purchase");
         return modelAndView;
     }
 
-    @RequestMapping(value = "buy",method = RequestMethod.POST)
-    public ModelAndView buy(ModelAndView modelAndView, BuyDTO dto){
+    @RequestMapping(value = "buy", method = RequestMethod.POST)
+    public ModelAndView buy(ModelAndView modelAndView, BuyDTO dto) {
         purchaseService.buy(dto);
         modelAndView.setViewName("buy");
-        modelAndView.addObject("buyResult","进货成功");
+        modelAndView.addObject("buyResult", "进货成功");
         return modelAndView;
     }
 
-    @RequestMapping(value = "buy",method = RequestMethod.GET)
-    public ModelAndView buy(ModelAndView modelAndView){
+    @RequestMapping(value = "buy", method = RequestMethod.GET)
+    public ModelAndView buy(ModelAndView modelAndView) {
         modelAndView.setViewName("buy");
         return modelAndView;
     }
 
-    @RequestMapping(value = "return",method = RequestMethod.POST)
-    public ModelAndView return1(ModelAndView modelAndView, ReturnDTO dto){
+    @RequestMapping(value = "return", method = RequestMethod.POST)
+    public ModelAndView return1(ModelAndView modelAndView, ReturnDTO dto) {
         purchaseService.return1(dto);
         modelAndView.setViewName("return");
-        modelAndView.addObject("returnResult","退货成功");
+        modelAndView.addObject("returnResult", "退货成功");
         return modelAndView;
     }
 
-    @RequestMapping(value = "return",method = RequestMethod.GET)
-    public ModelAndView return1(ModelAndView modelAndView){
+    @RequestMapping(value = "return", method = RequestMethod.GET)
+    public ModelAndView return1(ModelAndView modelAndView) {
         modelAndView.setViewName("return");
         return modelAndView;
     }

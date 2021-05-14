@@ -9,7 +9,10 @@ import java.util.List;
 
 public interface StockService {
     Page<Commodity> list(int page);
+
     void edit(CommodityEditDTO dto);
+
     Commodity getOne(Long id);
+
     List<Commodity> search(CommoditySearchDTO dto);
 }

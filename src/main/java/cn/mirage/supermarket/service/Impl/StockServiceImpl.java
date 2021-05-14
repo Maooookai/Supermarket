@@ -58,7 +58,7 @@ public class StockServiceImpl implements StockService {
             case "name": {
                 if (!commodityRepository.findAllByNameContains(dto.getContent()).isEmpty())
                     return commodityRepository.findAllByNameContains(dto.getContent());
-                 else return new ArrayList<>();
+                else return new ArrayList<>();
             }
             case "code": {
                 if (!commodityRepository.findAllByNameContains(dto.getContent()).isEmpty())

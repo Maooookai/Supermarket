@@ -1,6 +1,5 @@
 package cn.mirage.supermarket.controller;
 
-import cn.mirage.supermarket.entity.Commodity;
 import cn.mirage.supermarket.service.StockService;
 import cn.mirage.supermarket.to.CommodityEditDTO;
 import cn.mirage.supermarket.to.CommoditySearchDTO;
@@ -19,48 +18,48 @@ public class StockController {
     StockService stockService;
 
     @Autowired
-    public StockController(StockService stockService){
+    public StockController(StockService stockService) {
         this.stockService = stockService;
     }
 
     @RequestMapping(value = "stock")
-    public ModelAndView stock(ModelAndView modelAndView){
+    public ModelAndView stock(ModelAndView modelAndView) {
         modelAndView.setViewName("stock");
         return modelAndView;
     }
 
-    @RequestMapping(value = "allGoods",method = RequestMethod.GET)
-    public ModelAndView allGoods(ModelAndView modelAndView, @RequestParam(defaultValue = "0") int pageNum, HttpSession session){
+    @RequestMapping(value = "allGoods", method = RequestMethod.GET)
+    public ModelAndView allGoods(ModelAndView modelAndView, @RequestParam(defaultValue = "0") int pageNum, HttpSession session) {
         modelAndView.setViewName("allGoods");
-        session.setAttribute("goods",stockService.list(pageNum));
+        session.setAttribute("goods", stockService.list(pageNum));
         return modelAndView;
     }
 
-    @RequestMapping(value = "/editGoods",method = RequestMethod.GET)
+    @RequestMapping(value = "/editGoods", method = RequestMethod.GET)
     public ModelAndView edit(ModelAndView modelAndView, HttpSession session, String editId) {
         modelAndView.setViewName("editGoods");
         session.setAttribute("editInfo", stockService.getOne(Long.valueOf(editId)));
         return modelAndView;
     }
 
-    @RequestMapping(value = "/editGoods",method = RequestMethod.POST)
-    public ModelAndView edit(ModelAndView modelAndView,HttpSession session, CommodityEditDTO dto){
+    @RequestMapping(value = "/editGoods", method = RequestMethod.POST)
+    public ModelAndView edit(ModelAndView modelAndView, HttpSession session, CommodityEditDTO dto) {
         stockService.edit(dto);
         modelAndView.setViewName("allGoods");
-        session.setAttribute("goods",stockService.list(0));
+        session.setAttribute("goods", stockService.list(0));
         return modelAndView;
     }
 
-    @RequestMapping(value = "/searchGoods",method = RequestMethod.GET)
+    @RequestMapping(value = "/searchGoods", method = RequestMethod.GET)
     public ModelAndView search(ModelAndView modelAndView) {
         modelAndView.setViewName("searchGoods");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/searchGoods",method = RequestMethod.POST)
-    public ModelAndView search(ModelAndView modelAndView, HttpSession session, CommoditySearchDTO dto){
+    @RequestMapping(value = "/searchGoods", method = RequestMethod.POST)
+    public ModelAndView search(ModelAndView modelAndView, HttpSession session, CommoditySearchDTO dto) {
         session.removeAttribute("search");
-        session.setAttribute("searchResult",stockService.search(dto));
+        session.setAttribute("searchResult", stockService.search(dto));
         modelAndView.setViewName("searchResult");
         return modelAndView;
     }

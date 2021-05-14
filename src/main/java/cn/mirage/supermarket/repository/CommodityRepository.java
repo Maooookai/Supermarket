@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface CommodityRepository extends JpaRepository<Commodity,Long> {
+public interface CommodityRepository extends JpaRepository<Commodity, Long> {
 
 
     @NotNull List<Commodity> findAll();
