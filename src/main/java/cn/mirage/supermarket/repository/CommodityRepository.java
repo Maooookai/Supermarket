@@ -20,4 +20,6 @@ public interface CommodityRepository extends JpaRepository<Commodity, Long> {
 
     List<Commodity> findAllByCodeContains(Long code);
 
+    List<Commodity> findAllByFirstPurchaseTimeContains(String time);
+
 }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>财务管理</title>
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script crossorigin="anonymous"
+          integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+          src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/home">小型超市管理系统</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-default">
+        <li><a href="/purchase">进货管理</a></li>
+        <li><a href="/sales">销售管理</a></li>
+        <li><a href="/stock">库存管理</a></li>
+        <li><a href="/hr">人事管理</a></li>
+        <li><a href="/money">财务</a></li>
+        <li><a href="/access">辅助功能</a></li>
+      </ul>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            欢迎您，<span th:text="${session.userinfo.name}">请登录</span>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/profile">个人资料</a></li>
+            <li><a href="/password">修改密码</a></li>
+            <li class="divider"></li>
+            <li><a href="/exit">退出</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="jumbotron">
+    <h2>财务管理</h2>
+    <a class="btn btn-default active" href="/today" role="button">今日结算</a>&nbsp;&nbsp;&nbsp;
+    <a class="btn btn-default" href="/curMonth" role="button">月销售情况</a>&nbsp;&nbsp;&nbsp;
+    <a class="btn btn-default" href="/days" role="button">日销售情况</a>&nbsp;&nbsp;&nbsp;
+    <a class="btn btn-default" href="/rank" role="button">销量排行</a>&nbsp;&nbsp;&nbsp;
+    <a class="btn btn-default" href="/newRank" role="button">新产品销量情况</a>&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-danger" onclick="history.go(-1)">返回</button>
+    <h3>今日销售额：</h3>
+    <h3><span th:text="${session.todayInfo.sales}"></span>元</h3>
+    <h3>今日净利润：</h3>
+    <h3><span th:text="${session.todayInfo.profit}"></span>元</h3>
+    <h3>今日卖出最多商品：</h3>
+    <h3><span th:text="${session.todayInfo.mostCommodityName}">元</span></h3>
+    <h3>卖出数量：</h3>
+    <h3><span th:text="${session.todayInfo.mostCommodityNumber}">元</span></h3>
+  </div>
+</div>
+</body>
+</html>
