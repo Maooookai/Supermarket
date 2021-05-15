@@ -11,4 +11,5 @@ public interface AnnouncementRepository extends JpaRepository<Announcement, Long
 
     Optional<Announcement> findFirstByContentIsNotNullOrderByTimeDesc();
 
+
 }

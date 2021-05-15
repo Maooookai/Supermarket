@@ -75,8 +75,12 @@ public class SalesServiceImpl implements SalesService {
                 todayProfit = todayProfit + sales.getPrice() - commodityRepository.findByCode(sales.getCode()).get().getPurchasePrice();
             todayMoney = todayMoney + sales.getPrice();
         }
-        todayDTO.setMostCommodityName(salesRepository.findFirstByTimeContainsOrderByQuantityDesc(simpleDateFormat.format(new Date())).getName());
-        todayDTO.setMostCommodityNumber(String.valueOf(salesRepository.findFirstByTimeContainsOrderByQuantityDesc(simpleDateFormat.format(new Date())).getQuantity()));
+        if (!salesRepository.findAllByTimeContains(simpleDateFormat.format(new Date())).isEmpty())
+            todayDTO.setMostCommodityName(salesRepository.findFirstByTimeContainsOrderByQuantityDesc(simpleDateFormat.format(new Date())).getName());
+        else todayDTO.setMostCommodityName("今日暂无销售");
+        if (!salesRepository.findAllByTimeContains(simpleDateFormat.format(new Date())).isEmpty())
+            todayDTO.setMostCommodityNumber(String.valueOf(salesRepository.findFirstByTimeContainsOrderByQuantityDesc(simpleDateFormat.format(new Date())).getQuantity()));
+        else todayDTO.setMostCommodityNumber("0");
         todayDTO.setSales(String.valueOf(todayMoney));
         todayDTO.setProfit(String.valueOf(todayProfit));
         return todayDTO;
@@ -125,9 +129,9 @@ public class SalesServiceImpl implements SalesService {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM");
         List<Commodity> commodities = commodityRepository.findAllByFirstPurchaseTimeContains(simpleDateFormat.format(new Date()));
         List<Sales> sales = new ArrayList<>();
-        for(Commodity commodity:commodities){
-            if (!(salesRepository.findFirstByCode(commodity.getCode())==null))
-            sales.add(salesRepository.findFirstByCode(commodity.getCode()));
+        for (Commodity commodity : commodities) {
+            if (!(salesRepository.findFirstByCode(commodity.getCode()) == null))
+                sales.add(salesRepository.findFirstByCode(commodity.getCode()));
         }
         return sales;
     }

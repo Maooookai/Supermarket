@@ -57,6 +57,7 @@ public class LoginController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "exit")
     public ModelAndView exit(ModelAndView modelAndView,HttpSession session){
         session.removeAttribute("user");
         modelAndView.setViewName("login");
